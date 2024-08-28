@@ -35,11 +35,11 @@
 }
 
 .content {
-  margin-left: 250px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full height of the viewport for vertical centering */
+  width: 100%; /* Full width to center the content in the middle of the page */
 }
 
 .upload-form {
@@ -47,10 +47,13 @@
   border-radius: 10px;
   padding: 30px;
   width: 500px;
+  display: flex;
+  flex-direction: column;
+   /* Center child elements horizontally */
 }
 
 .drag-drop-area {
-  border: 2px dashed #6c757d;
+  border: 2px solid #6c757d; /* Change the border to a solid line */
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
@@ -60,6 +63,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 20px; /* Add space above the input */
 }
 
 .drag-drop-area:hover {
@@ -94,4 +98,29 @@
 .text-success {
   font-size: 16px;
   font-weight: 500;
+}
+
+.form-label {
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.form-label-upload {
+  font-weight: bold;
+  font-size: 45px; /* Increase the size of the text */
+  height: 30px;
+  color: #6a1b9a; /* Set the color to purple */
+  white-space: nowrap; /* Prevent the text from wrapping to the next line */
+  margin-bottom: 15px;
+}
+
+.form-control, .form-select, .file-upload-input {
+  width: 100%; /* Make input fields take full width of the form */
+  max-width: 400px; /* Maximum width for better appearance */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.mb-3 {
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
