@@ -26,7 +26,7 @@
 }
 
 .sidebar-option:hover {
-  background-color: #b90de4;
+  background-color: #2d1e70;
   border-radius: 10px;
 }
 
@@ -36,15 +36,62 @@
 
 .content {
   margin-left: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+
+.upload-form {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  width: 500px;
+}
+
 .drag-drop-area {
   border: 2px dashed #6c757d;
-  padding: 20px;
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
+  height: 150px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .drag-drop-area:hover {
   background-color: #f8f9fa;
+}
+
+.drag-drop-area .file-upload-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.drag-drop-message {
+  text-align: center;
+}
+
+.drag-drop-text-large {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.drag-drop-text-small {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.text-success {
+  font-size: 16px;
+  font-weight: 500;
 }

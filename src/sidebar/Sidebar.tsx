@@ -5,8 +5,9 @@ import logo from '../logo_no_backgorund.png';
 
 const Sidebar: React.FC = () => {
 
-  const [activeMenu, setActiveMenu] = useState<string>('');
-  
+  const [activeMenu, setActiveMenu] = useState<string>(''); // State to track the active menu
+  const [uploadedFileName, setUploadedFileName] = useState<string | null>(null); // State to track the uploaded file name
+
   useEffect(() => {
     const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltipTriggerList.forEach((tooltipTriggerEl) => {
@@ -31,15 +32,28 @@ const Sidebar: React.FC = () => {
           </div>
           <div className="mb-3">
             <label className="form-label">Upload and Ingest Data</label>
-            <div className="drag-drop-area">
+            <div
+              className="drag-drop-area d-flex align-items-center justify-content-center flex-column"
+              onDrop={(e) => handleFileDrop(e)}
+              onDragOver={(e) => e.preventDefault()}
+            >
               <input
                 type="file"
-                className="form-control"
+                className="file-upload-input"
                 id="fileUpload"
-                onDrop={(e) => handleFileDrop(e)}
-                onDragOver={(e) => e.preventDefault()}
+                onChange={(e) => handleFileChange(e)}
               />
+              <div className="drag-drop-message">
+                <div className="drag-drop-text-large">Drag and drop file here</div>
+                <div className="drag-drop-text-small">Limit 200MB per file .CSV, XLSX</div>
+              </div>
             </div>
+            {uploadedFileName && (
+              <div className="mt-2 text-success">
+                <i className="fas fa-check-circle me-2"></i>
+                {uploadedFileName}
+              </div>
+            )}
           </div>
         </div>
       );
@@ -47,12 +61,20 @@ const Sidebar: React.FC = () => {
     return <p>Select an option from the sidebar.</p>;
   };
 
-  const handleFileDrop = (e: React.DragEvent<HTMLInputElement>) => {
+  const handleFileDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     const files = e.dataTransfer.files;
-    // Handle file processing here
-    console.log(files);
+    if (files.length > 0) {
+      setUploadedFileName(files[0].name);
+    }
   };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setUploadedFileName(e.target.files[0].name);
+    }
+  };
+
 
   return (
     <div className="d-flex">
