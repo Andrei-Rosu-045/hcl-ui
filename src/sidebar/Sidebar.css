@@ -1,0 +1,50 @@
+.sidebar {
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2d1e70;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-label {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menu-options {
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.sidebar-option {
+  width: 80%;
+  font-size: 25px;
+}
+
+.sidebar-option:hover {
+  background-color: #b90de4;
+  border-radius: 10px;
+}
+
+.sidebar-text {
+  font-size: 18px;
+}
+
+.content {
+  margin-left: 250px;
+}
+.drag-drop-area {
+  border: 2px dashed #6c757d;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.drag-drop-area:hover {
+  background-color: #f8f9fa;
+}
